@@ -6,6 +6,7 @@ int d = 5;
 int e = 6;
 int f = 7;
 int g = 8;
+
 void One()
 {
   digitalWrite(b, HIGH);
@@ -53,14 +54,10 @@ void Six()
 
 
 }
-
 void Seven()
-{
-  // put your setup code here, to run once:
-  digitalWrite(a, OUTPUT);
+{digitalWrite(a, OUTPUT);
   digitalWrite(b, OUTPUT);
   digitalWrite(c, OUTPUT);
-
 }
 void Eight()
 
@@ -70,27 +67,35 @@ void Eight()
   digitalWrite(c, OUTPUT);
   digitalWrite(d, OUTPUT);
   digitalWrite(e, OUTPUT);
-  digitalWrite(f,OUTPUT);
+  digitalWrite(f, OUTPUT);
   digitalWrite(g, OUTPUT);
 }
 void Nine()
 {
-  digitalWrite(a,OUTPUT);
+  digitalWrite(a, OUTPUT);
   digitalWrite(b OUTPUT);
   digitalWrite(c, OUTPUT);
   digitalWrite(g, OUTPUT);
   digitalWrite(f, OUTPUT);
 }
+
+
+void setup()
+{
+  // put your setup code here, to run once:
+  
+
 }
+
 void loop() {
   // put your main code here, to run repeatedly:
-//  for (int i = 0; i < 9; i++)
-//  { digitalWrite(i, HIGH);
-//
-//  }
-Nine();
-delay(dealyv);
-Eight();
-delay(dealyv);
-  
+  //  for (int i = 0; i < 9; i++)
+  //  { digitalWrite(i, HIGH);
+  //
+  //  }
+  Nine();
+  delay(dealyv);
+  Eight();
+  delay(dealyv);
+
 }
