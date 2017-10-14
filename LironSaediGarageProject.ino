@@ -8,11 +8,13 @@ int d = 5;
 int e = 6;
 int f = 7;
 int g = 8;
+int rightMagnet = 11;
+int leftMagnet = 12;
 Servo leftArm;
 Servo rightArm;
 void rightArmOpen()
 {
-  rightArm.write(90);
+  rightArm.write(170);
 }
 void leftArmOpen()
 {
@@ -130,50 +132,59 @@ void setup()
   pinMode(f, OUTPUT);
   pinMode(g, OUTPUT);
   leftArm.attach(10);
+  pinMode(rightMagnet, INPUT);
+  pinMode(leftMagnet, INPUT);
   rightArm.attach(9);
   //pinMode(Nine,OUTPUT);
   // put your setup code here, to run once:
 
-
+  Serial.begin(9600);
 }
 
 void loop() {
-  Zero();
-  delay(delayv);
-  Off();
-  One();
-  delay(delayv);
-  Off();
-  Two();
-  delay(delayv);
-  Off();
-  Three();
-  delay(delayv);
-  Off();
-  Four();
-  delay(delayv);
-  Off();
-  Five();
-  delay(delayv);
-  Off();
-  Six();
-  delay(delayv);
-  Off();
-  Seven();
-  delay(delayv);
-  Off();
-  Eight();
-  delay(delayv);
-  Off();
-  Nine();
-  delay(delayv);
-  Off();
-  rightArmOpen();
-  leftArmClose(); 
-
-  // put your main code here, to run repeatedly:
-  //  for (int i = 0; i < 9; i++)
-  //  { digitalWrite(i, HIGH);
-  //
-  //  }
+  //  Zero();
+  //  delay(delayv);
+  //  Off();
+  //  One();
+  //  delay(delayv);
+  //  Off();
+  //  Two();
+  //  delay(delayv);
+  //  Off();
+  //  Three();
+  //  delay(delayv);
+  //  Off();
+  //  Four();
+  //  delay(delayv);
+  //  Off();
+  //  Five();
+  //  delay(delayv);
+  //  Off();
+  //  Six();
+  //  delay(delayv);
+  //  Off();
+  //  Seven();
+  //  delay(delayv);
+  //  Off();
+  //  Eight();
+  //  delay(delayv);
+  //  Off();
+  //  Nine();
+  //  delay(delayv);
+  //  Off();
+  if (digitalRead(11))  
+  {
+    rightArmOpen;
+  }
+  else
+  {
+    rightArmClose;
+  }
+}
+(digitalRead(12);
+ // put your main code here, to run repeatedly:
+ //  for (int i = 0; i < 9; i++)
+ //  { digitalWrite(i, HIGH);
+ //
+ //  }
 }
