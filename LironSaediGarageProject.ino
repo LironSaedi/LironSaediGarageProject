@@ -14,7 +14,7 @@ Servo leftArm;
 Servo rightArm;
 void rightArmOpen()
 {
-  rightArm.write(170);
+  rightArm.write(90);
 }
 void leftArmOpen()
 {
@@ -139,52 +139,31 @@ void setup()
   // put your setup code here, to run once:
 
   Serial.begin(9600);
+
+  rightArmClose();
+  leftArmClose();
+  delay(3000);
 }
 
 void loop() {
-  //  Zero();
-  //  delay(delayv);
-  //  Off();
-  //  One();
-  //  delay(delayv);
-  //  Off();
-  //  Two();
-  //  delay(delayv);
-  //  Off();
-  //  Three();
-  //  delay(delayv);
-  //  Off();
-  //  Four();
-  //  delay(delayv);
-  //  Off();
-  //  Five();
-  //  delay(delayv);
-  //  Off();
-  //  Six();
-  //  delay(delayv);
-  //  Off();
-  //  Seven();
-  //  delay(delayv);
-  //  Off();
-  //  Eight();
-  //  delay(delayv);
-  //  Off();
-  //  Nine();
-  //  delay(delayv);
-  //  Off();
-  if (digitalRead(11))  
+
+  if (digitalRead(rightMagnet))  
   {
-    rightArmOpen;
+    rightArmOpen();
+    delay(200);
   }
   else
   {
-    rightArmClose;
+    rightArmClose();
   }
-}
-(digitalRead(12);
- // put your main code here, to run repeatedly:
- //  for (int i = 0; i < 9; i++)
- //  { digitalWrite(i, HIGH);
- //
- //  }
+  if (digitalRead(leftMagnet))
+  {
+    leftArmOpen();
+    delay(200);
+  }
+  else
+  {
+    leftArmClose();
+  }
+  
 }
