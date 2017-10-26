@@ -12,6 +12,7 @@ int rightMagnet = 11;
 int leftMagnet = 12;
 Servo leftArm;
 Servo rightArm;
+int carsCount = 0;
 void rightArmOpen()
 {
   rightArm.write(90);
@@ -29,6 +30,54 @@ void leftArmClose()
 {
   leftArm.write(170);
 }
+void numberPicker(int number)
+{
+  Off();
+  
+  if (number == 0)
+  {
+    Zero();
+    
+  }
+  if (number == 1)
+  {
+    One();
+  }
+  if (number == 2)
+  {
+    Two();
+  }
+  if (number == 3)
+  {
+    Three();
+  }
+  if (number ==  4)
+  {
+    Four();
+  }
+  if (number == 5)
+  {
+    Five();
+  }
+  if (number == 6)
+  {
+    Six();
+  }
+  if (number == 7)
+  {
+    Seven();
+  }
+  if (number == 8)
+  {
+    Eight();
+  }
+  if (number == 9)
+  {
+    Nine();
+  }
+
+}
+
 void Zero()
 {
   digitalWrite(a, HIGH);
@@ -109,6 +158,8 @@ void Nine()
   digitalWrite(g, HIGH);
   digitalWrite(f, HIGH);
 }
+
+
 void Off()
 {
 
@@ -139,7 +190,7 @@ void setup()
   // put your setup code here, to run once:
 
   Serial.begin(9600);
-
+  Zero();
   rightArmClose();
   leftArmClose();
   delay(3000);
@@ -147,10 +198,11 @@ void setup()
 
 void loop() {
 
-  if (digitalRead(rightMagnet))  
+  if (digitalRead(rightMagnet))
   {
     rightArmOpen();
     delay(200);
+    carsCount + 1;
   }
   else
   {
@@ -160,10 +212,13 @@ void loop() {
   {
     leftArmOpen();
     delay(200);
+    carsCount - 1;
   }
   else
   {
     leftArmClose();
   }
-  
+
+  numberPicker(carsCount);
+  Serial.println("carsCount"); 
 }
