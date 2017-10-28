@@ -195,24 +195,33 @@ void setup()
   leftArmClose();
   delay(3000);
 }
+int currentEntryMag = 0;
+int previousEntryMag = 0;
+int currentExitMag = 0;
+int previousExitMag = 0;
 
-void loop() {
 
-  if (digitalRead(rightMagnet))
+void loop() 
+{
+  previousEntryMag = currentEntryMag;
+  currentEntryMag = digitalRead(rightMagnet);
+  previousExitMag = currentExitMag;
+  currentExitMag = digitalRead(leftMagnet);
+  if (currentEntryMag == 1 && previousEntryMag == 0)
   {
     rightArmOpen();
-    delay(200);
-    carsCount + 1;
+    delay(1000);
+    carsCount += 1;
   }
   else
   {
     rightArmClose();
   }
-  if (digitalRead(leftMagnet))
+  if (currentExitMag == 1 && previousExitMag == 0)
   {
     leftArmOpen();
     delay(200);
-    carsCount - 1;
+    carsCount -= 1;
   }
   else
   {
