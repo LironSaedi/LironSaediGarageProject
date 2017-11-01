@@ -13,6 +13,12 @@ int leftMagnet = 12;
 Servo leftArm;
 Servo rightArm;
 int carsCount = 0;
+
+/*Describe the function
+ This set of functions sets the degree of an arm .
+ If the number is set to 90, then that means the arm is open
+ If the number is set to 170 or 10, then the arm is closed.
+*/
 void rightArmOpen()
 {
   rightArm.write(90);
@@ -30,6 +36,11 @@ void leftArmClose()
 {
   leftArm.write(170);
 }
+
+//describe the function and what the arguments are
+/*
+ number picker is a function that takes what the number is.  For example if number picker reads that the number 8 for example is equivelent to number then it will display 8 on the 7 segment LED or light. "int number" is the actual number it's self
+ */
 void numberPicker(int number)
 {
   Off();
@@ -77,7 +88,9 @@ void numberPicker(int number)
   }
 
 }
-
+/*
+ All of these functions are basically commands so that the numbers 0-9 can  display on the 7 segmenet LED or light.
+ */
 void Zero()
 {
   digitalWrite(a, HIGH);
@@ -207,6 +220,11 @@ void loop()
   currentEntryMag = digitalRead(rightMagnet);
   previousExitMag = currentExitMag;
   currentExitMag = digitalRead(leftMagnet);
+
+  //what does this do?
+  /*
+   currentEntryMag is a verible that compares numbers 1s and 0s (they could also be called yes and no(1 being YES and 2 being NO)) they compare each other so that we can know when a car passes by.
+   */
   if (currentEntryMag == 1 && previousEntryMag == 0)
   {
     rightArmOpen();
@@ -217,6 +235,8 @@ void loop()
   {
     rightArmClose();
   }
+
+  //what does this do?
   if (currentExitMag == 1 && previousExitMag == 0)
   {
     leftArmOpen();
